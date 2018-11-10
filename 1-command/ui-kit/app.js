@@ -1,7 +1,6 @@
 // #===
-// Participants
+// Define participants
 
-// Not too much to do without interfaces
 class Command {
     /**
      * @param {Receiver} receiver 
@@ -10,18 +9,21 @@ class Command {
         this.receiver = receiver
     }
     
-    execute() {}
+    execute() {
+        throw new Error('Subclass must override execute')
+    }
 }
 
-// Concrete Command
+// Concrete Commands
 class OpenAlertCommand extends Command {
     execute() {
         this.receiver.alert('Gotcha!')
     }
 }
 
-class AggregateCommand {
+class AggregateCommand extends Command {
     constructor(...commands) {
+        super()
         this.commands = commands
     }
 
@@ -101,6 +103,8 @@ class Application {
     }
 }
 
+// #===
+// Execute commands
 const appNode = document.getElementById('app')
 const application = new Application(appNode)
 
