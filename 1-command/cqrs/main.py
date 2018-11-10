@@ -9,7 +9,7 @@ command_handler = CommandHander()
 read_store = ReadStore(command_handler, write_store)
 query_handler = QueryHandler(read_store) 
 
-app = BankApplication(command_handler, query_handler, write_store)
+app = BankApplication(command_handler, query_handler, write_store, read_store)
 
 last_deposit = app.deposit(100)
 all_deposits = app.get_all_deposits()
