@@ -1,1 +1,3 @@
 node_modules
+**/*.py[cod]
+.vscode
