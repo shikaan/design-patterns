@@ -1,0 +1,16 @@
+{
+  "name": "2-memento",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "electron": "^3.0.9"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC"
+}
