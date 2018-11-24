@@ -41,8 +41,6 @@ export class KeyboardEventHandler extends React.Component<IKeyboardEventHandler<
     }
 
     save = (): void => {
-        console.log('save')
-
         const {history} = this.state
         const entry = this.props.takeSnapshot()
 
