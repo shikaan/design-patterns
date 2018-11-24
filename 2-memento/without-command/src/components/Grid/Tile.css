@@ -1,0 +1,29 @@
+@import "../../theme.css";
+@import "../../variables.css";
+@import "./style.css";
+
+.Tile {
+    --height: calc(var(--grid-width) / 3);
+
+    background: var(--primary-color);
+    color: var(--light-color);
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+
+    line-height: var(--height);
+    height: var(--height);
+}
+
+.Tile.Tile--transparent {
+    opacity: 0;
+}
+
+.Tile.Tile--selected {
+    background: var(--accent-color);
+}
+
+.Tile .Tile-Label {
+    padding: 0;
+    margin: 0;
+}

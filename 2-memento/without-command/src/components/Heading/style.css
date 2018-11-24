@@ -1,0 +1,17 @@
+@import "../../theme.css";
+@import "../../variables.css";
+
+.Heading.Heading--h1 {
+    font-size: var(--h1-font-size);
+    letter-spacing: var(--h1-letter-spacing);
+}
+
+.Heading.Heading--h2 {
+    font-size: var(--h2-font-size);
+    letter-spacing: var(--h2-letter-spacing);
+}
+
+.Heading.Heading--h3 {
+    font-size: var(--h3-font-size);
+    letter-spacing: var(--h3-letter-spacing);
+}

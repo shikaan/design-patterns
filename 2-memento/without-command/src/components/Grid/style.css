@@ -1,0 +1,23 @@
+@import "../../theme.css";
+@import "../../variables.css";
+
+:root {
+    --grid-border-color: var(--grey-color);
+    --grid-background-color: var(--dark-color);
+    --grid-width: calc(var(--base-size) * 70);
+}
+
+.Grid {
+    border-width: var(--base-border-width);
+    border-color: var(--grid-border-color);
+    border-radius: var(--base-border-radius);
+    border-style: solid;
+
+    background: var(--grid-background-color);
+    width: var(--grid-width);
+    margin: auto;
+}
+
+.Grid .Row {
+    display: flex;
+}
