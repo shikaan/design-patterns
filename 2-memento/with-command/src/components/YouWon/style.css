@@ -1,0 +1,6 @@
+@import "../../theme.css";
+@import "../../variables.css";
+
+.YouWon .YouWon-Gif {
+    max-width: calc(var(--base-size)*70)
+}

@@ -1,0 +1,23 @@
+@import "../../theme.css";
+@import "../../variables.css";
+
+.Button {
+    background: var(--light-color);
+    border-width: var(--base-border-width);
+    border-radius: var(--base-border-radius);
+    box-shadow: none;
+    margin: var(--base-size);
+    padding: calc(var(--base-size) * 4) calc(var(--base-size) * 8);
+
+    font-size: var(--h3-font-size);
+    letter-spacing: var(--h3-letter-spacing);
+}
+
+.Button:disabled {
+    opacity: .3;
+}
+
+.Button.Button--primary {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}

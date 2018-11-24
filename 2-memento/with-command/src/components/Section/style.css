@@ -1,0 +1,7 @@
+@import "../../theme.css";
+@import "../../variables.css";
+
+.Section {
+    text-align: center;
+    padding: calc(var(--base-size) * 4);
+}
