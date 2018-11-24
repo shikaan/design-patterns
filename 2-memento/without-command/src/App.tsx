@@ -42,8 +42,8 @@ const App = () => {
     return (
         <Section>
             <Header>
-                <Heading level={1}>Awesome Game</Heading>
-                <Heading level={2}>Click on a cell and use the arrows to move the selected tile</Heading>
+                <Heading level={1}>Sort the tiles</Heading>
+                <Heading level={2}>Click on a cell and use keyboard arrows to move the tiles</Heading>
             </Header>
             <Game>{renderGameChildren}</Game>
         </Section>
