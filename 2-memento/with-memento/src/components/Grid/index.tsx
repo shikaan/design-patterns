@@ -4,9 +4,9 @@ import {Tile} from "./Tile";
 import './style.css'
 
 interface IGrid {
-    rows: Array<Array<number>>,
-    selectedTile: Array<number>,
-    selectTile: (tile: Array<number>) => void
+    rows: number[][],
+    selectedTile: number[],
+    selectTile: (tile: number[]) => void
 }
 
 export class Grid extends React.Component<IGrid> {
@@ -16,7 +16,7 @@ export class Grid extends React.Component<IGrid> {
         )
     }
 
-    renderRow = (row: Array<number>, rowIndex: number): ReactElement<any> => {
+    renderRow = (row: number[], rowIndex: number): ReactElement<any> => {
         const [selectedTileRow, selectedTileColumn] = this.props.selectedTile
 
         return (

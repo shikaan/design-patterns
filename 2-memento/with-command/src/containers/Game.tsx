@@ -6,8 +6,8 @@ import deepEqual from 'deep-equal'
 // Receiver
 interface IGameProps {
     children: (
-        rows: Array<Array<number>>,
-        selectedTile: Array<number>,
+        rows: number[][],
+        selectedTile: number[],
         isWinning: boolean,
         game: IGame
     ) => ReactNode
@@ -39,7 +39,7 @@ export class Game extends React.Component<IGameProps> implements IGame {
         const isNextPositionReplaceable = rows[newSelectedTileY] && rows[newSelectedTileY][newSelectedTileX] === 0
 
         if (isYWithinBoundaries && isXWithinBoundaries && isNextPositionReplaceable) {
-            const newRows: Array<Array<number>> = deepCopy(rows)
+            const newRows: number[][] = deepCopy(rows)
 
             const aux = rows[newSelectedTileY][newSelectedTileX]
             newRows[newSelectedTileY][newSelectedTileX] = rows[selectedTileY][selectedTileX]
@@ -51,7 +51,7 @@ export class Game extends React.Component<IGameProps> implements IGame {
         }
     }
 
-    selectTile = (tile: Array<number>): void => {
+    selectTile = (tile: number[]): void => {
         const [tileY, tileX] = tile
 
         // Don't select tile 0

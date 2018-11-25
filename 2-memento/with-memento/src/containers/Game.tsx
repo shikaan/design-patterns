@@ -5,14 +5,14 @@ import deepEqual from 'deep-equal'
 
 // Memento
 export interface ISnapshot {
-    getState(): { rows: Array<Array<number>>, selectedTile: Array<number> }
+    getState(): { rows: number[][], selectedTile: number[] }
 }
 
 class Snapshot implements ISnapshot {
-    private rows: Array<Array<number>>;
-    private selectedTile: Array<number>;
+    private rows: number[][];
+    private selectedTile: number[];
 
-    constructor(rows: Array<Array<number>>, selectedTile: Array<number>) {
+    constructor(rows: number[][], selectedTile: number[]) {
         this.rows = rows
         this.selectedTile = selectedTile
 
@@ -28,10 +28,10 @@ class Snapshot implements ISnapshot {
 // Originator
 interface IGame {
     children: (
-        rows: Array<Array<number>>,
-        selectedTile: Array<number>,
+        rows: number[][],
+        selectedTile: number[],
         isWinning: boolean,
-        selectTile: (tile: Array<number>) => void,
+        selectTile: (tile: number[]) => void,
         moveSelectedTile: (y: number, x: number) => void,
         takeSnapshot: () => ISnapshot,
         restoreSnapshot: (snapshot: ISnapshot) => void
@@ -59,7 +59,7 @@ export class Game extends React.Component<IGame> {
         const isNextPositionReplaceable = rows[newSelectedTileY] && rows[newSelectedTileY][newSelectedTileX] === 0
 
         if (isYWithinBoundaries && isXWithinBoundaries && isNextPositionReplaceable) {
-            const newRows: Array<Array<number>> = deepCopy(rows)
+            const newRows: number[][] = deepCopy(rows)
 
             const aux = rows[newSelectedTileY][newSelectedTileX]
             newRows[newSelectedTileY][newSelectedTileX] = rows[selectedTileY][selectedTileX]
@@ -71,7 +71,7 @@ export class Game extends React.Component<IGame> {
         }
     }
 
-    selectTile = (tile: Array<number>): void => {
+    selectTile = (tile: number[]): void => {
         const [tileY, tileX] = tile
 
         // Don't select tile 0
