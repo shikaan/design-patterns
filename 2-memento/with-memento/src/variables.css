@@ -1,0 +1,20 @@
+:root {
+    --base-size: 4px;
+
+
+    /* TYPOGRAPHY */
+    --base-font-size: calc(var(--base-size) * 2);
+
+    --h1-font-size: 6rem;
+    --h1-letter-spacing: -1.5;
+
+    --h2-font-size: 3.75rem;
+    --h2-letter-spacing: -0.5;
+
+    --h3-font-size: 3rem;
+    --h3-letter-spacing: 0;
+
+    /* BORDER */
+    --base-border-width: calc(var(--base-size) / 2);
+    --base-border-radius: calc(var(--base-size) * 2);
+}
