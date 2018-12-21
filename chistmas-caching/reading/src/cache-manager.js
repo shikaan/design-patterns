@@ -1,4 +1,4 @@
-const STORE = new Map()
+const CACHE_LAYER = new Map()
 
 class CacheManager {
     /**
@@ -8,11 +8,11 @@ class CacheManager {
      * @returns {any|null}
      */
     get(key) {
-        if (!STORE.has(key)) {
+        if (!CACHE_LAYER.has(key)) {
             return null
         }
 
-        return STORE.get(key)
+        return CACHE_LAYER.get(key)
     }
 
     /**
@@ -27,11 +27,11 @@ class CacheManager {
             throw new RangeError(`Cannot set entry without a key. Expected a key, got ${key}`)
         }
 
-        STORE.set(key, entry)
+        CACHE_LAYER.set(key, entry)
 
         if (expiration) {
             setTimeout(() => {
-                STORE.delete(key)
+                CACHE_LAYER.delete(key)
             }, expiration * 1000)
         }
     }
