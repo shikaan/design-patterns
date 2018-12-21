@@ -17,8 +17,8 @@ To run the the applications
 
 ```
     npm run start:inline
-``
+```
 
 ```
     npm run start:aside
-``
+```
