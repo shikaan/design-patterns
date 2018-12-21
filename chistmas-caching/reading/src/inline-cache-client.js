@@ -14,14 +14,14 @@ class Application {
         console.log('Getting last 3 XKCD comics from XKCD API...')
         console.time('XKCD API')
 
-        await this.resourceManager.getLastComics(3)
+        console.log(await this.resourceManager.getLastComics(3))
 
         console.timeEnd('XKCD API')
 
         console.log('Getting last 3 XKCD comics from Cache...')
         console.time('Cache')
 
-        await this.resourceManager.getLastComics(3)
+        console.log(await this.resourceManager.getLastComics(3))
 
         console.timeEnd('Cache')
     }

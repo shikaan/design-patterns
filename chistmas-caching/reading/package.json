@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:inline": "node ./src/inline-cache-client.js",
-    "start:aside": "node ./src/inline-cache-aside.js",
+    "start:aside": "node ./src/aside-cache-client.js",
     "test": "titef ./test"
   },
   "author": "",
