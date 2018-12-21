@@ -1,0 +1,20 @@
+{
+  "name": "inline-cache",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:inline": "node ./src/inline-cache-client.js",
+    "start:aside": "node ./src/inline-cache-aside.js",
+    "test": "titef ./test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "phin": "^3.2.0"
+  },
+  "devDependencies": {
+    "sinon": "^7.2.2",
+    "titef": "^2.1.1"
+  }
+}
