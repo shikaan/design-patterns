@@ -22,3 +22,28 @@ To run the the applications
 ```
     npm run start:aside
 ```
+
+You can launch tests with
+
+```
+    npm test
+```
+
+## Writing
+
+In the writing part the implementation is done in Python in which we are 
+faking long operation using timers.
+
+The easiest way to launch the project is using [`invoke`](http://www.pyinvoke.org/).
+
+```
+    invoke init
+    invoke install
+    invoke start
+```
+
+If you want to launch tests you can run
+
+```
+    invoke test
+```
