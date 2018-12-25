@@ -4,6 +4,7 @@ Caching Patterns
 This sub-repo is divided into folders, one per episode:
 
 - [`reading`](./reading)
+- [`writing`](./writing)
 
 ## Reading
 

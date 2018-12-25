@@ -4,6 +4,7 @@ from time import sleep
 from uuid import uuid1
 from utils import trace
 
+
 class TrulyAwesomeBankAPIClient:
     def __init__(self):
         self.__database = {}
@@ -17,8 +18,10 @@ class TrulyAwesomeBankAPIClient:
         self.__database[transaction['id']] = transaction
 
         return transaction
-    
+
     @trace
     async def read_transaction_by_id(self, transaction_id):
         await asyncio.sleep(1.5)
-        return self.__database[transaction_id]
+        if transaction_id in self.__database.keys():
+            return self.__database[transaction_id]
+        return None

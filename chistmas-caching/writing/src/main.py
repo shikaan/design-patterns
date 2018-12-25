@@ -1,5 +1,4 @@
 import asyncio
-from time import sleep
 
 from cache_manager import CacheManager
 from resource_manager import ResourceManager
@@ -15,8 +14,6 @@ async def main():
         'amount': 100,
         'currency': 'EUR'
     }
-
-    print('Transaction:', transaction)
 
     print('=======================')
     print('|    WRITE THROUGH    |')
@@ -36,9 +33,22 @@ async def main():
     print('>>> Get transaction')
     await resource_manager.fetch_transaction_by_id(entry['id'])
 
-    sleep(5)
-    print('>>> Get transaction after synchronization')
-    await resource_manager.fetch_transaction_by_id(entry['id'])
+    print('')
+    print('--------------------------------------------')
+    print('|    AWESOME BANK DATABASE (before sync)   |')
+    print('--------------------------------------------')
+    print(truly_awesome_bank_API_client._TrulyAwesomeBankAPIClient__database)
+    print('')
+
+    # wait for synchronization 
+    await asyncio.sleep(10)
+
+    print('')
+    print('--------------------------------------------')
+    print('|    AWESOME BANK DATABASE (after sync)    |')
+    print('--------------------------------------------')
+    print(truly_awesome_bank_API_client._TrulyAwesomeBankAPIClient__database)
+    print('')
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
