@@ -1,5 +1,6 @@
 from threading import Timer
 from uuid import uuid1
+from asyncio import ensure_future, sleep
 
 
 class ResourceManager:
@@ -22,16 +23,20 @@ class ResourceManager:
 
     async def save_with_write_behind(self, transaction):
         entry = self.__create_entry(transaction)
-        
-        x = Timer(5, lambda: self.cache_manager.set(entry['id'], entry))
-        x.start()
 
-        return await self.truly_awesome_bank_API_client.save_transaction(entry)
-    
+        async def delay_synchronization(entry):
+            await sleep(5)
+            await self.truly_awesome_bank_API_client.save_transaction(entry)
+
+        synchronization = ensure_future(delay_synchronization(entry))
+
+        self.cache_manager.set(entry['id'], entry)
+        return entry
+
     async def fetch_transaction_by_id(self, transaction_id):
         entry = self.cache_manager.get(transaction_id)
 
         if entry:
             return entry
-        
+
         return await self.truly_awesome_bank_API_client.read_transaction_by_id(transaction_id)
