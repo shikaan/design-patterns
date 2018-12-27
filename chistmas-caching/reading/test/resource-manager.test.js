@@ -18,12 +18,12 @@ const getXKCDClientStub = () => {
 
 suite('Resource Manager', () => {
     suite('getLastComics', () => {
-        spec('fetch entries from XKCDClient if resource is not cached', () => {
+        spec('fetch entries from XKCDClient if resource is not cached', async () => {
             const cacheManagerStub = getCacheManagerStub() 
             const xkcdClientStub = getXKCDClientStub() 
             const resourceManager = new ResourceManager(cacheManagerStub, xkcdClientStub)
 
-            resourceManager.getLastComics(1)
+            await resourceManager.getLastComics(1)
 
             assert.ok(cacheManagerStub.get.called)
             assert.ok(cacheManagerStub.set.called)
